@@ -1,53 +1,39 @@
-# 🌐 Mustafa AlQudah — Portfolio
+# mustafaalqudah.com
 
-Personal portfolio website built with **Next.js 14**, **Tailwind CSS**, and **Framer Motion**.  
-It highlights my projects, skills, and background as a **Software Developer & Network Engineering student**.
+My portfolio, hand-written in one HTML file with no framework and no build step.
 
----
+**Live:** [mustafaalqudah.com](https://mustafaalqudah.com)
 
-## 🚀 Features
-- Modern responsive UI (Next.js + Tailwind)
-- Smooth animations (Framer Motion)
-- Sections:
-  - Hero (intro + call to action)
-  - About Me
-  - Projects (CodeIt, GADHA, KidsCoding.jo, SubHub_official)
-  - Skills
-  - Contact
-- SEO-friendly metadata
-- Easy deployment with [Vercel](https://vercel.com/)
+![mustafaalqudah.com](og.png)
 
----
+## What's in it
 
-## 📂 Projects
-- **CodeIt** → Gamified kids coding platform (React, Python, Firebase)  
-- **GADHA** → Arabic quiz game with cultural trivia (Next.js, Node.js, Figma)  
-- **KidsCoding.jo** → After-school coding site & curriculum (React, Tailwind)  
-- **SubHub_official** → Subscription reselling business model (Instagram + automation)  
+- **WebGL flow field** behind the page: a fragment shader drawing a moving field, with a few thousand particles that form my name. Move the cursor through it and it parts; click and it scatters.
+- **A hidden terminal.** Press <kbd>`</kbd> (or the terminal button) and type `help`. The commands are `whoami`, `ls`, `projects`, `skills`, `resume`, `contact` and `clear`.
+- **Work:** CodeIt, LYNQ Office and the LYNQ studio, live client sites, AI video and reels, experience and education.
+- **Two résumés** (software developer and IT support) in [`resume/`](resume).
+- **Accessible and fast:** semantic HTML, keyboard-friendly, `prefers-reduced-motion` turns off the motion, fonts are self-hosted, images are WebP and video is lazy.
 
----
+## Files
 
-## 🛠️ Tech Stack
-- **Frontend:** React, Next.js, Tailwind CSS, Framer Motion  
-- **Backend:** Node.js, ASP.NET MVC  
-- **Databases:** SQL Server, Firebase  
-- **Other Tools:** GitHub, Jira, Figma  
+```
+index.html     the whole site: markup, styles and scripts
+fonts/         Bricolage Grotesque, Geist, Geist Mono (self-hosted)
+img/           project thumbnails (WebP)
+video/         short screen recordings of client sites, with posters
+resume/        résumés (PDF)
+_headers       security and cache headers
+og.png         social preview
+```
 
----
+## Run it
 
-## 🖥️ Local Setup
-Clone and run locally:
+Open `index.html` in a browser, or serve the folder:
 
 ```bash
-# 1. Clone repo
-git clone https://github.com/alqudah1/Portfolio.git
-cd Portfolio
+python3 -m http.server 8000
+```
 
-# 2. Install dependencies
-npm install
+## License
 
-# 3. Run dev server
-npm run dev
-
-# 4. Visit
-http://localhost:3000
+The code is MIT (see [LICENSE](LICENSE)). The résumés, photos and video belong to me and to the clients shown, and are not covered by the licence.
