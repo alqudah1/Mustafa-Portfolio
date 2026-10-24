@@ -1,0 +1,657 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mustafa AlQudah</title>
+<meta name="description" content="Mustafa AlQudah is a Toronto software developer and IT support specialist. Founder of CodeIt, a coding platform for kids, and LYNQ, a web and AI automation studio.">
+<link rel="canonical" href="https://mustafaalqudah.com/">
+<meta name="theme-color" content="#2b45ff">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mustafaalqudah.com/">
+<meta property="og:title" content="Mustafa AlQudah | Software Developer in Toronto">
+<meta property="og:description" content="Founder of CodeIt and LYNQ. I build and run real products with React, Node.js, PostgreSQL and the Claude API.">
+<meta property="og:image" content="https://mustafaalqudah.com/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Mustafa AlQudah","url":"https://mustafaalqudah.com","jobTitle":"Software Developer","email":"mailto:mustafaqudah556@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Toronto","addressRegion":"ON","addressCountry":"CA"},"alumniOf":{"@type":"CollegeOrUniversity","name":"Sheridan College"},"sameAs":["https://www.linkedin.com/in/mustafaalqudah","https://github.com/alqudah1","https://codeitlearn.com","https://lynq.build"]}
+</script>
+<style>
+@font-face{font-family:"Bricolage Grotesque";src:url(/fonts/bricolage.woff2) format("woff2");font-weight:200 800;font-display:swap}
+@font-face{font-family:"Geist";src:url(/fonts/geist.woff2) format("woff2");font-weight:100 900;font-display:swap}
+@font-face{font-family:"Geist Mono";src:url(/fonts/geist-mono-400.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Geist Mono";src:url(/fonts/geist-mono-500.woff2) format("woff2");font-weight:500;font-display:swap}
+/* Layout: a living hero (shader field + a name made of particles you can push around), then a crisp spec-sheet page.
+   One look on purpose: warm paper, cobalt, violet and coral. No black. */
+:root{
+  --paper:#f4f2ec; --sheet:#fbfaf6; --ink:#141a3a; --muted:#565c78; --faint:#8a8fa6; --rule:#dcdbe3;
+  --cobalt:#2b45ff; --violet:#7b5cff; --coral:#ff6a48; --lime:#d6ff4a; --deep:#10166b; --white:#ffffff;
+  --display:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;
+  --body:"Geist",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --gutter:clamp(16px,4vw,48px); --max:1280px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 16px/1.6 var(--body);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+button{font:inherit}
+:focus-visible{outline:2px solid var(--coral);outline-offset:3px}
+::selection{background:var(--cobalt);color:var(--white)}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.04em;text-transform:uppercase}
+.wrap{max-width:var(--max);margin:0 auto;padding-inline:var(--gutter)}
+.sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- top bar ---------- */
+.bar{position:fixed;inset:0 0 auto 0;top:env(safe-area-inset-top,0px);z-index:40;transition:background .3s,border-color .3s,color .3s;border-bottom:1px solid transparent;color:var(--white)}
+.bar.solid{background:color-mix(in srgb,var(--paper) 86%,transparent);backdrop-filter:saturate(1.4) blur(12px);-webkit-backdrop-filter:saturate(1.4) blur(12px);border-color:var(--rule);color:var(--ink)}
+.bar .wrap{display:flex;align-items:center;gap:24px;height:60px}
+.mark{display:flex;align-items:center;gap:10px;font:600 14px/1 var(--body)}
+.mark i{display:grid;place-items:center;width:30px;height:30px;background:currentColor;font:800 12px/1 var(--display);font-style:normal}
+.mark i b{color:var(--cobalt);font-weight:800}
+.bar:not(.solid) .mark i b{color:var(--deep)}
+.nav{display:flex;gap:22px;margin-left:auto}
+.nav a{font:500 12px/1 var(--mono);letter-spacing:.04em;opacity:.75;padding:6px 0;border-bottom:1px solid transparent;transition:opacity .15s,border-color .15s}
+.nav a:hover,.nav a.on{opacity:1;border-color:currentColor}
+.term-btn{display:inline-flex;align-items:center;gap:8px;height:34px;padding:0 12px;border:1px solid currentColor;background:none;color:inherit;cursor:pointer;font:500 12px/1 var(--mono);letter-spacing:.04em}
+.term-btn kbd{font:inherit;opacity:.6}
+.term-btn:hover{background:var(--coral);border-color:var(--coral);color:var(--white)}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:min(100svh,980px);overflow:hidden;background:var(--deep);color:var(--white);isolation:isolate}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+#field{z-index:0;background:linear-gradient(135deg,#10166b 0%,#2b45ff 45%,#7b5cff 75%,#ff6a48 100%)}
+#swarm{z-index:1;cursor:crosshair;touch-action:pan-y}
+.hero .grain{position:absolute;inset:0;z-index:2;pointer-events:none;opacity:.18;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.hero-ui{position:relative;z-index:3;pointer-events:none;min-height:inherit;display:flex;flex-direction:column;justify-content:space-between;padding-block:96px 28px}
+.hero-ui a,.hero-ui button{pointer-events:auto}
+.hero-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+.chip{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.28);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.live{width:7px;height:7px;background:var(--lime);box-shadow:0 0 0 3px rgba(214,255,74,.25);animation:blink 1.6s steps(2) infinite}
+@keyframes blink{50%{opacity:.35}}
+.fallback-name{font:800 clamp(56px,13vw,190px)/.84 var(--display);letter-spacing:-.05em;margin:0;text-align:center}
+.js .fallback-name{color:transparent;user-select:none}
+.hero-bottom{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:end}
+.prompt{font:500 clamp(15px,1.6vw,19px)/1.5 var(--mono);margin:0 0 18px;min-height:1.5em}
+.prompt .p{color:var(--lime)}
+.caret{display:inline-block;width:.6em;height:1.1em;vertical-align:-.18em;background:var(--white);margin-left:2px;animation:blink 1s steps(2) infinite}
+.thesis{font:600 clamp(22px,2.6vw,34px)/1.15 var(--display);letter-spacing:-.02em;max-width:24ch;margin:0;text-wrap:balance}
+.cta{display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-end}
+.btn{display:inline-flex;align-items:center;gap:10px;height:46px;padding:0 18px;font:600 14px/1 var(--body);border:1px solid currentColor;transition:background .2s,color .2s,border-color .2s;will-change:transform}
+.btn svg{width:14px;height:14px}
+.btn.solid{background:var(--white);color:var(--deep);border-color:var(--white)}
+.btn.solid:hover{background:var(--lime);border-color:var(--lime)}
+.btn.ghost{color:var(--white);border-color:rgba(255,255,255,.6)}
+.btn.ghost:hover{background:var(--coral);border-color:var(--coral)}
+.hint{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:22px;opacity:.7}
+.hint b{color:var(--lime);font-weight:500}
+
+/* marquee */
+.ticker{overflow:hidden;background:var(--lime);color:var(--deep);border-block:1px solid var(--deep)}
+.ticker .track{display:flex;width:max-content;animation:slide 38s linear infinite}
+.ticker span{font:700 clamp(18px,2.2vw,28px)/1 var(--display);letter-spacing:-.02em;padding:16px 0;white-space:nowrap}
+.ticker span::after{content:"";display:inline-block;width:.42em;height:.42em;background:var(--cobalt);margin:0 .9em;vertical-align:.12em}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* ---------- sections ---------- */
+.sec{border-bottom:1px solid var(--rule);position:relative}
+.sec>.wrap{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;padding-block:clamp(64px,9vw,120px)}
+.sec[id]{scroll-margin-top:60px}
+.rail{grid-column:1/span 3;min-width:0}
+.rail .path{color:var(--cobalt);margin-bottom:10px}
+.rail h2{font:800 clamp(30px,3.4vw,44px)/.98 var(--display);letter-spacing:-.035em;margin:0 0 12px;text-wrap:balance}
+.rail p{color:var(--muted);font-size:14px;margin:0;max-width:28ch}
+.body{grid-column:4/-1;min-width:0}
+
+.about{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 40px}
+.about p{margin:0;color:var(--muted);font-size:17px;max-width:46ch}
+.about p strong{color:var(--ink);font-weight:500}
+.about a{color:var(--ink);background:linear-gradient(var(--lime),var(--lime)) 0 88%/100% 35% no-repeat}
+.about a:hover{background-size:100% 100%}
+
+/* projects */
+.proj{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(24px,3vw,40px);align-items:start}
+.proj+.proj{margin-top:clamp(56px,7vw,88px);padding-top:clamp(56px,7vw,88px);border-top:1px solid var(--rule)}
+.stage{perspective:1100px}
+.frame{display:block;border:1px solid var(--ink);background:var(--sheet);transform-style:preserve-3d;transition:transform .25s cubic-bezier(.2,.7,.1,1),box-shadow .25s;box-shadow:8px 8px 0 var(--cobalt)}
+.frame:hover{box-shadow:14px 14px 0 var(--coral)}
+.frame .chrome{display:flex;align-items:center;gap:10px;height:30px;padding:0 10px;border-bottom:1px solid var(--ink);color:var(--muted);background:var(--paper)}
+.frame .chrome i{display:flex;gap:5px}
+.frame .chrome i b{width:8px;height:8px}
+.frame .chrome i b:nth-child(1){background:var(--coral)}.frame .chrome i b:nth-child(2){background:var(--lime)}.frame .chrome i b:nth-child(3){background:var(--cobalt)}
+.frame .shot{display:block;aspect-ratio:16/9.2;overflow:hidden}
+.frame .shot img{width:100%;height:100%;object-fit:cover;object-position:top}
+.proj h3{font:800 clamp(30px,3vw,40px)/1 var(--display);letter-spacing:-.035em;margin:8px 0 12px}
+.proj .role{color:var(--faint)}
+.proj .sum{margin:0 0 22px;color:var(--muted)}
+.nums{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--rule);border-left:1px solid var(--rule);margin-bottom:22px}
+.nums div{padding:12px 14px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.nums b{display:block;font:800 28px/1 var(--display);letter-spacing:-.03em;font-variant-numeric:tabular-nums;color:var(--cobalt)}
+.nums b small{font-size:.5em;color:var(--muted)}
+.nums span{display:block;margin-top:6px;font-size:13px;color:var(--muted);line-height:1.35}
+.case{margin:0 0 22px;display:grid;gap:14px}
+.case dt{color:var(--ink);margin-bottom:4px}
+.case dd{margin:0;color:var(--muted);font-size:15px}
+.foot-row{grid-column:1/-1;display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:center}
+.stack{display:flex;flex-wrap:wrap;gap:6px;margin:0;padding:0;list-style:none}
+.stack li{font:400 12px/1 var(--mono);padding:7px 9px;border:1px solid var(--rule);color:var(--muted);transition:background .15s,color .15s,border-color .15s}
+.stack li:hover{background:var(--cobalt);border-color:var(--cobalt);color:var(--white)}
+.go{display:flex;flex-wrap:wrap;gap:8px}
+.go a{display:inline-flex;align-items:center;gap:8px;font:600 13px/1 var(--body);padding:11px 14px;border:1px solid var(--ink);transition:background .15s,color .15s}
+.go a:hover{background:var(--ink);color:var(--paper)}
+.go svg{width:12px;height:12px}
+
+/* clients */
+.tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--rule);border-left:1px solid var(--rule)}
+.tile{display:flex;flex-direction:column;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:14px;position:relative;overflow:hidden;transition:background .2s}
+.tile::before{content:"";position:absolute;inset:auto 0 0 0;height:3px;background:var(--c,var(--cobalt));transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.2,.7,.1,1)}
+.tile:hover::before{transform:none}
+.tile:hover{background:var(--sheet)}
+.tile .thumb{aspect-ratio:16/10;overflow:hidden;border:1px solid var(--rule);background:var(--sheet)}
+.tile .thumb img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .6s cubic-bezier(.2,.7,.1,1)}
+.tile:hover .thumb img{transform:scale(1.05)}
+.tile .cap{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-top:14px}
+.tile h3{font:800 20px/1.1 var(--display);letter-spacing:-.02em;margin:0}
+.tile .arrow{color:var(--faint);transition:color .15s,transform .2s}
+.tile:hover .arrow{color:var(--c,var(--cobalt));transform:translate(3px,-3px)}
+.tile .meta{color:var(--faint);margin-top:6px}
+.tile p{margin:8px 0 0;font-size:14px;color:var(--muted)}
+.tile.more{justify-content:space-between;background:var(--cobalt);color:var(--white)}
+.tile.more:hover{background:var(--violet)}
+.tile.more .meta,.tile.more .arrow{color:rgba(255,255,255,.8)}
+.tile.more .big{font:800 clamp(28px,2.8vw,38px)/1 var(--display);letter-spacing:-.035em;margin:6px 0 0}
+
+/* experience */
+.xp{border-top:2px solid var(--ink)}
+.xp .row{display:grid;grid-template-columns:160px minmax(0,1fr);gap:24px;padding:22px 0;border-bottom:1px solid var(--rule);transition:padding .25s}
+.xp .row:hover{padding-left:10px}
+.xp .when{color:var(--faint);font-variant-numeric:tabular-nums;padding-top:4px}
+.xp h3{font:600 18px/1.3 var(--body);letter-spacing:-.01em;margin:0}
+.xp h3 span{color:var(--faint);font-weight:400}
+.xp ul{margin:8px 0 0;padding:0;list-style:none;color:var(--muted);font-size:15px;display:grid;gap:4px}
+.xp li{padding-left:18px;position:relative}
+.xp li::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:7px;background:var(--cobalt)}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 40px;margin:0}
+.skills div{padding:16px 0;border-bottom:1px solid var(--rule)}
+.skills dt{margin-bottom:6px;color:var(--cobalt)}
+.skills dd{margin:0;color:var(--muted);font-size:15px}
+
+/* contact */
+.contact{background:var(--cobalt);color:var(--white);border-bottom:0}
+.contact .rail .path{color:var(--lime)}
+.contact .big{font:800 clamp(48px,9vw,128px)/.88 var(--display);letter-spacing:-.05em;margin:0 0 30px}
+.contact .big em{font-style:normal;color:var(--lime)}
+.email{display:flex;flex-wrap:wrap;align-items:center;gap:12px;padding:18px 0;border-top:2px solid var(--white);border-bottom:1px solid rgba(255,255,255,.35)}
+.email a{font:500 clamp(18px,2.4vw,28px)/1.2 var(--body);letter-spacing:-.01em;word-break:break-all}
+.email a:hover{color:var(--lime)}
+.copy{margin-left:auto;font:500 12px/1 var(--mono);letter-spacing:.04em;padding:11px 14px;border:1px solid rgba(255,255,255,.6);background:none;color:var(--white);cursor:pointer}
+.copy:hover{background:var(--lime);color:var(--deep);border-color:var(--lime)}
+.contact .note{opacity:.85;max-width:52ch;margin:20px 0 0}
+.elsewhere{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.contact .btn.solid:hover{background:var(--lime)}
+footer{background:var(--deep);color:rgba(255,255,255,.7)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-block:24px}
+
+/* terminal */
+.term{position:fixed;right:clamp(12px,3vw,32px);bottom:clamp(12px,3vw,32px);z-index:60;width:min(560px,calc(100vw - 24px));height:min(380px,70svh);display:flex;flex-direction:column;background:#0f1550;color:#e8ebff;border:1px solid var(--violet);box-shadow:10px 10px 0 var(--coral);font:400 13px/1.55 var(--mono)}
+.term[hidden]{display:none}
+.term header{display:flex;align-items:center;justify-content:space-between;padding:8px 12px;border-bottom:1px solid rgba(255,255,255,.15);font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:#aab2ff}
+.term header button{background:none;border:1px solid rgba(255,255,255,.3);color:#e8ebff;width:26px;height:26px;cursor:pointer}
+.term .out{flex:1;overflow:auto;padding:12px 14px;white-space:pre-wrap;word-break:break-word}
+.term .out .c{color:var(--lime)}.term .out .e{color:#ff9b85}.term .out .d{color:#aab2ff}
+.term .out a{color:var(--lime);text-decoration:underline}
+.term form{display:flex;gap:8px;align-items:center;padding:10px 14px;border-top:1px solid rgba(255,255,255,.15)}
+.term form span{color:var(--lime)}
+.term input{flex:1;min-width:0;background:none;border:0;outline:0;color:#fff;font:inherit;caret-color:var(--lime)}
+
+/* cursor */
+.cur{position:fixed;left:0;top:0;z-index:80;width:10px;height:10px;background:var(--coral);pointer-events:none;mix-blend-mode:normal;transform:translate(-50%,-50%);transition:width .2s,height .2s,background .2s;display:none}
+.cur.big{width:44px;height:44px;background:rgba(214,255,74,.35);border:1px solid var(--lime)}
+@media (pointer:fine){.cur{display:block}}
+
+/* reveal on scroll (visible by default; JS adds .in for a lift) */
+.reveal{transition:transform .8s cubic-bezier(.2,.7,.1,1),opacity .8s}
+.js .reveal.pre{transform:translateY(28px);opacity:.001}
+
+
+.os{box-shadow:8px 8px 0 var(--violet)}
+.os:hover{box-shadow:14px 14px 0 var(--lime)}
+.osmap{display:grid;grid-template-columns:150px minmax(0,1fr);aspect-ratio:16/9.2;background:var(--deep);color:var(--white);font-size:12px}
+.os-side{display:flex;flex-direction:column;gap:2px;padding:14px 10px;border-right:1px solid rgba(255,255,255,.12)}
+.os-side b{font:800 14px/1 var(--display);letter-spacing:-.02em;margin:0 0 12px 6px;color:var(--white)}
+.os-side span{padding:6px;color:rgba(255,255,255,.62)}
+.os-side span.on{background:var(--lime);color:var(--ink)}
+.os-main{padding:16px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.os-k{color:var(--lime);letter-spacing:.06em;text-transform:uppercase;font-size:11px}
+.os-brand{display:flex;flex-wrap:wrap;gap:6px}
+.os-brand span{border:1px solid rgba(255,255,255,.25);padding:5px 8px;font:400 11px/1 var(--mono);color:rgba(255,255,255,.8)}
+.os-fmt{display:grid;grid-template-columns:1fr 1.4fr .8fr;gap:10px;flex:1;min-height:0}
+.os-fmt div{border:1px solid rgba(255,255,255,.2);display:flex;flex-direction:column;justify-content:flex-end;padding:8px;font:400 11px/1.2 var(--mono);color:rgba(255,255,255,.75);position:relative;overflow:hidden}
+.os-fmt div::before{content:"";position:absolute;inset:8px 8px 28px 8px;background:linear-gradient(135deg,rgba(43,69,255,.9),rgba(123,92,255,.6))}
+.os-fmt div:nth-child(2)::before{background:repeating-linear-gradient(90deg,rgba(255,106,72,.85) 0 30%,transparent 30% 35%)}
+.os-fmt div:nth-child(3)::before{background:linear-gradient(180deg,rgba(214,255,74,.9),rgba(16,22,107,.2))}
+.os-fmt div span{position:relative}
+.reels{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+.reel{margin:0;min-width:0}
+.reel video{display:block;width:100%;aspect-ratio:9/16;object-fit:cover;background:var(--ink);border:1px solid var(--ink)}
+.reel figcaption{margin-top:10px;display:flex;flex-direction:column;gap:4px}
+.reel figcaption b{font:800 15px/1.15 var(--display);letter-spacing:-.01em}
+.reel figcaption span{color:var(--faint);font-size:11px}
+.reel-note{margin:22px 0 0;color:var(--muted);font-size:14px;max-width:60ch}
+@media (max-width:1000px){
+  .rail{grid-column:1/-1;margin-bottom:32px}.rail p{max-width:52ch}
+  .body{grid-column:1/-1}
+  .proj{grid-template-columns:1fr}
+  .tiles{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .reels{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .hero-bottom{grid-template-columns:1fr}
+  .cta{justify-content:flex-start}
+}
+@media (max-width:720px){
+  .nav{display:none}.term-btn{margin-left:auto}
+  .about,.skills{grid-template-columns:1fr}
+  .tiles{grid-template-columns:1fr}
+  .reels{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding-bottom:8px}
+  .reel{flex:0 0 62%;scroll-snap-align:start}
+  .osmap{grid-template-columns:118px minmax(0,1fr);font-size:10px}.os-side span{padding:5px 4px;overflow-wrap:anywhere}.os-main{padding:12px;gap:9px}
+  .xp .row{grid-template-columns:1fr;gap:6px}
+  .copy{margin-left:0}
+  .hint .desk{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.js .reveal.pre{transform:none;opacity:1}}
+</style>
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<div class="cur" id="cur" aria-hidden="true"></div>
+
+<header class="bar" id="bar">
+  <div class="wrap">
+    <a class="mark" href="#top" aria-label="Back to top"><i><b>MA</b></i>Mustafa AlQudah</a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#work">/work</a><a href="#clients">/clients</a><a href="#video">/video</a><a href="#experience">/experience</a><a href="#skills">/skills</a><a href="#contact">/contact</a>
+    </nav>
+    <button class="term-btn" id="openTerm" type="button" aria-label="Open the terminal">terminal <kbd>`</kbd></button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" aria-label="Introduction">
+    <canvas id="field" aria-hidden="true"></canvas>
+    <canvas id="swarm" aria-hidden="true"></canvas>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="hero-ui wrap">
+      <div class="hero-top mono">
+        <span class="chip"><i class="live"></i>Open to full-time roles</span>
+        <span class="chip">Toronto · 43.65° N, 79.38° W</span>
+      </div>
+      <h1 class="fallback-name">Mustafa AlQudah</h1>
+      <div class="hero-bottom">
+        <div>
+          <p class="prompt" aria-live="polite"><span class="p">mustafa@toronto ~ $</span> <span id="typed">builds products people pay for</span><i class="caret" aria-hidden="true"></i></p>
+          <p class="thesis">Software developer and IT support. I build real products, then stay to keep them running.</p>
+          <div class="hint mono"><span class="desk"><b>Move</b> your cursor through my name</span><span><b>Click</b> to scatter it</span><span class="desk"><b>Press `</b> for the terminal</span></div>
+        </div>
+        <div class="cta">
+          <a class="btn solid magnet" href="#work">See my work <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 2v11M3 8l5 5 5-5"/></svg></a>
+          <a class="btn ghost magnet" href="/resume/Mustafa-AlQudah-Software-Developer.pdf" target="_blank" rel="noopener">Resume</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ticker" aria-hidden="true"><div class="track">
+    <span>React</span><span>Node.js</span><span>PostgreSQL</span><span>Claude API</span><span>Stripe</span><span>Azure</span><span>Vercel</span><span>Cloudflare</span><span>Python</span><span>Networking</span><span>IT support</span>
+    <span>React</span><span>Node.js</span><span>PostgreSQL</span><span>Claude API</span><span>Stripe</span><span>Azure</span><span>Vercel</span><span>Cloudflare</span><span>Python</span><span>Networking</span><span>IT support</span>
+  </div></div>
+
+  <section class="sec" id="about" aria-label="About">
+    <div class="wrap">
+      <div class="rail reveal"><div class="path mono">/about</div><h2>Both sides of the system</h2></div>
+      <div class="body about reveal">
+        <p>I'm a developer in Toronto with an Advanced Diploma in Software Development and Network Engineering from <strong>Sheridan College</strong>. I like building things people actually use, then sticking around to keep them working.</p>
+        <p>I'm the founder and lead developer of <a href="https://codeitlearn.com" target="_blank" rel="noopener">CodeIt</a>, a coding platform for kids with paid family plans, and I run <a href="https://lynq.build" target="_blank" rel="noopener">LYNQ</a>, building websites and automation for small businesses in Toronto and Amman.</p>
+        <p>I also do IT support. At a kids coding school I'm the only tech person, so every account, device and connection problem comes to me.</p>
+        <p>That mix means I see a problem from the server behind it and from the person calling about it. It makes me a better developer and a calmer support person.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="work" aria-label="Work">
+    <div class="wrap">
+      <div class="rail reveal"><div class="path mono">/work</div><h2>Things I built and run</h2><p>Products I built and run, from the first commit to support after launch.</p></div>
+      <div class="body">
+        <article class="proj reveal">
+          <div class="stage"><a class="frame tilt" href="https://codeitlearn.com" target="_blank" rel="noopener" aria-label="Open codeitlearn.com">
+            <div class="chrome mono"><i><b></b><b></b><b></b></i>codeitlearn.com</div>
+            <div class="shot"><img src="/img/codeit.webp" width="960" height="529" alt="CodeIt home page with a live Python editor: Write your first Python program" loading="lazy"></div>
+          </a></div>
+          <div>
+            <div class="role mono">Founder and lead developer · 2025 to now</div>
+            <h3>CodeIt</h3>
+            <p class="sum">A browser coding studio for kids aged 8 to 14. A kid describes a game or website, AI builds a first version, and then they learn by editing the real code.</p>
+            <div class="nums">
+              <div><b class="count" data-to="5" data-pre="Top ">Top 5</b><span>of 49 at Sheridan's 2025 capstone showcase</span></div>
+              <div><b class="count" data-to="300" data-suf="+">300+</b><span>of the project's commits are mine</span></div>
+              <div><b class="count" data-to="31">31</b><span>sequenced Python lessons</span></div>
+              <div><b class="count" data-to="3">3</b><span>Claude model tiers, picked per build</span></div>
+            </div>
+          </div>
+          <dl class="case" style="grid-column:1/-1">
+            <div><dt class="mono">Problem</dt><dd>Kids who outgrow block coding hit a wall with real code. Blank editors are scary, and tutorials don't let them build what they actually want.</dd></div>
+            <div><dt class="mono">Build</dt><dd>React front end with an in-browser code editor, a Node.js and Express API with JWT auth, and PostgreSQL on Supabase, deployed on Vercel. The AI builder runs on the Claude API across three model tiers chosen by how hard each build is, so simple pages stay cheap and harder games get the stronger model.</dd></div>
+            <div><dt class="mono">Running it</dt><dd>A free plan with 10 AI-assisted builds a month, and a CA$12 a month family plan through Stripe with plan limits. The backend is covered by automated tests. During development I moved the data layer from Azure SQL to MySQL on AWS RDS and then to PostgreSQL.</dd></div>
+            <div><dt class="mono">For parents</dt><dd>Comprehension questions are generated from each kid's own project, and parents get a plain-language summary instead of a score. Younger kids get a profile their parent manages, and projects stay private by default.</dd></div>
+          </dl>
+          <div class="foot-row">
+            <ul class="stack"><li>React</li><li>Node.js</li><li>Express</li><li>PostgreSQL</li><li>Supabase</li><li>Claude API</li><li>Stripe</li><li>Vercel</li></ul>
+            <div class="go"><a href="https://codeitlearn.com" target="_blank" rel="noopener">Live site <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9 9 3M4 3h5v5"/></svg></a><a href="https://github.com/alqudah1/CodeIt" target="_blank" rel="noopener">Source <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9 9 3M4 3h5v5"/></svg></a></div>
+          </div>
+        </article>
+
+        <article class="proj reveal">
+          <div class="stage"><a class="frame os tilt" href="https://lynq.build/office" target="_blank" rel="noopener" aria-label="Open lynq.build/office">
+            <div class="chrome mono"><i><b></b><b></b><b></b></i>app.lynq.build</div>
+            <div class="osmap" aria-hidden="true">
+              <div class="os-side mono"><b>LYNQ Office</b><span>CRM</span><span>Sales</span><span>Projects</span><span>Workflows</span><span class="on">Content Studio</span><span>Comms</span><span>Analytics</span><span>Agents</span></div>
+              <div class="os-main">
+                <div class="os-k mono">Content Studio · brand profile</div>
+                <div class="os-brand"><span>voice</span><span>visual rules</span><span>audience</span><span>claims to avoid</span></div>
+                <div class="os-k mono">Formats</div>
+                <div class="os-fmt"><div><span>Post</span></div><div><span>Carousel</span></div><div><span>Reel 9:16</span></div></div>
+              </div>
+            </div>
+          </a></div>
+          <div>
+            <div class="role mono">Founder and lead developer · 2026 to now</div>
+            <h3>LYNQ Office</h3>
+            <p class="sum">LYNQ's internal operating platform. One sign-in for CRM, sales, projects, workflows, marketing, communications and analytics, with AI agents that work inside clear permissions.</p>
+            <div class="nums">
+              <div><b class="count" data-to="185">185</b><span>test files across the platform</span></div>
+              <div><b class="count" data-to="42">42</b><span>reviewed database migrations</span></div>
+              <div><b class="count" data-to="3">3</b><span>content formats: posts, carousels and 9:16 reels</span></div>
+              <div><b class="count" data-to="2">2</b><span>sign-in providers, Google and Microsoft</span></div>
+            </div>
+          </div>
+          <dl class="case" style="grid-column:1/-1">
+            <div><dt class="mono">Platform</dt><dd>Next.js and TypeScript on Vercel, with Drizzle ORM on Neon Postgres. Every organization and workspace is kept separate, and every schema change ships as a reviewed SQL migration.</dd></div>
+            <div><dt class="mono">Content Studio</dt><dd>Each brand gets a profile with its voice, visual rules, audience and the claims it must never make. From that, the studio drafts single posts, carousels and 9:16 reels, generates AI video clips with Runway and assembles the final cut.</dd></div>
+            <div><dt class="mono">Agents</dt><dd>AI agents run through a registry and runtime with tool permissions, audit trails and recovery, so automation does real work without going off script.</dd></div>
+          </dl>
+          <div class="foot-row">
+            <ul class="stack"><li>Next.js</li><li>TypeScript</li><li>Tailwind</li><li>Drizzle</li><li>Neon Postgres</li><li>Vercel</li><li>Runway</li><li>Vitest</li></ul>
+            <div class="go"><a href="https://lynq.build/office" target="_blank" rel="noopener">lynq.build/office <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9 9 3M4 3h5v5"/></svg></a></div>
+          </div>
+        </article>
+
+        <article class="proj reveal">
+          <div class="stage"><a class="frame tilt" href="https://lynq.build" target="_blank" rel="noopener" aria-label="Open lynq.build">
+            <div class="chrome mono"><i><b></b><b></b><b></b></i>lynq.build</div>
+            <div class="shot"><img src="/img/lynq.webp" width="519" height="286" alt="LYNQ home page: Build better. Work smarter." loading="lazy"></div>
+          </a></div>
+          <div>
+            <div class="role mono">Founder and software engineer · 2025 to now</div>
+            <h3>LYNQ</h3>
+            <p class="sum">A web and AI automation studio for small businesses in Toronto and Amman. I take each project from the first call to deployment, and stay on for fixes after launch.</p>
+            <dl class="case">
+              <div><dt class="mono">Off spreadsheets</dt><dd>Moved a manufacturing client onto an internal system on Microsoft Azure and migrated their Excel records into Azure SQL. It's in daily use.</dd></div>
+              <div><dt class="mono">Lead pipeline</dt><dd>A Node.js pipeline that collects business data, scores prospects by the quality of their website, and routes qualified leads automatically.</dd></div>
+              <div><dt class="mono">Now offering</dt><dd>AI video, from short reels to full story ads, AI customer support chat trained on a client's own menu, services and hours, custom agentic AI workflows, and LYNQ Office, a private workspace for projects, CRM, tasks and approvals.</dd></div>
+            </dl>
+            <div class="go"><a href="https://lynq.build" target="_blank" rel="noopener">lynq.build <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9 9 3M4 3h5v5"/></svg></a><a href="https://github.com/alqudah1/Lynq.Build" target="_blank" rel="noopener">Source <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9 9 3M4 3h5v5"/></svg></a></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="clients" aria-label="Client sites">
+    <div class="wrap">
+      <div class="rail reveal"><div class="path mono">/clients</div><h2>Live client sites</h2><p>Delivered through LYNQ, plus the school site I maintain. Every one is live, so click through.</p></div>
+      <div class="body reveal">
+        <div class="tiles">
+          <a class="tile" style="--c:var(--cobalt)" href="https://kingsbridgegroup.ca" target="_blank" rel="noopener"><div class="thumb"><img src="/img/kingsbridge.webp" width="519" height="286" alt="Kingsbridge Group website" loading="lazy"></div><div class="cap"><h3>Kingsbridge Group</h3><span class="arrow">↗</span></div><div class="meta mono">Custom homes · Toronto</div><p>Site for a custom home builder and property manager.</p></a>
+          <a class="tile" style="--c:var(--coral)" href="https://nasmajo.com" target="_blank" rel="noopener"><div class="thumb"><img src="/img/nasma.webp" width="519" height="286" alt="Nasma restaurant website" loading="lazy"></div><div class="cap"><h3>Nasma</h3><span class="arrow">↗</span></div><div class="meta mono">Restaurant · Amman</div><p>English and Arabic site for a Levantine restaurant, with table booking.</p></a>
+          <a class="tile" style="--c:var(--violet)" href="https://arcubed-label.vercel.app" target="_blank" rel="noopener"><div class="thumb"><img src="/img/arcubed.webp" width="519" height="286" alt="Arcubed Label store" loading="lazy"></div><div class="cap"><h3>Arcubed Label</h3><span class="arrow">↗</span></div><div class="meta mono">E-commerce · Amman</div><p>Online store for made-to-order crochet bags.</p></a>
+          <a class="tile" style="--c:var(--coral)" href="https://finding-amy.com" target="_blank" rel="noopener"><div class="thumb"><img src="/img/finding-amy.webp" width="519" height="286" alt="Finding Amy photo booth website" loading="lazy"></div><div class="cap"><h3>Finding Amy</h3><span class="arrow">↗</span></div><div class="meta mono">Photo booth rental · Amman</div><p>Interactive site built around a booth you tap to start.</p></a>
+          <a class="tile" style="--c:var(--cobalt)" href="https://kidscoding.ca" target="_blank" rel="noopener"><div class="thumb"><img src="/img/kidscoding.webp" width="589" height="325" alt="Kids Coding School website" loading="lazy"></div><div class="cap"><h3>Kids Coding School</h3><span class="arrow">↗</span></div><div class="meta mono">STEM school · Toronto</div><p>I maintain the site: registration, integrations and SEO.</p></a>
+          <a class="tile more" href="https://lynq.build/portfolio" target="_blank" rel="noopener"><div><div class="meta mono">LYNQ portfolio</div><div class="big">More work and concept studies</div></div><div class="cap"><span class="mono">lynq.build/portfolio</span><span class="arrow">↗</span></div></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="video" aria-label="AI video">
+    <div class="wrap">
+      <div class="rail reveal"><div class="path mono">/video</div><h2>AI video and reels</h2><p>Short brand films, story ads and reels, made with AI video tools and cut for Instagram, TikTok and YouTube Shorts.</p></div>
+      <div class="body reveal">
+        <div class="reels">
+          <figure class="reel"><video src="/video/kingsbridge-property.mp4" poster="/video/kingsbridge-property.jpg" preload="none" playsinline controls aria-label="The property never stops video"></video><figcaption><b>The property never stops</b><span class="mono">Kingsbridge Group · client</span></figcaption></figure>
+          <figure class="reel"><video src="/video/kingsbridge-home.mp4" poster="/video/kingsbridge-home.jpg" preload="none" playsinline controls aria-label="Custom homes video"></video><figcaption><b>Custom homes</b><span class="mono">Kingsbridge Group · client</span></figcaption></figure>
+          <figure class="reel"><video src="/video/lynq-leak.mp4" poster="/video/lynq-leak.jpg" preload="none" playsinline controls aria-label="A leak at 9pm video"></video><figcaption><b>A leak at 9pm</b><span class="mono">LYNQ · story ad</span></figcaption></figure>
+          <figure class="reel"><video src="/video/lynq-path.mp4" poster="/video/lynq-path.jpg" preload="none" playsinline controls aria-label="Clear the path video"></video><figcaption><b>Clear the path</b><span class="mono">LYNQ · brand reel</span></figcaption></figure>
+          <figure class="reel"><video src="/video/codeit-create.mp4" poster="/video/codeit-create.jpg" preload="none" playsinline controls aria-label="Screen time? Create time. video"></video><figcaption><b>Screen time? Create time.</b><span class="mono">CodeIt · product reel</span></figcaption></figure>
+        </div>
+        <p class="reel-note">Each one goes from script to storyboard to final edit, with voice and captions, in vertical, square and wide versions. Tap a video to play it.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="experience" aria-label="Experience">
+    <div class="wrap">
+      <div class="rail reveal"><div class="path mono">/experience</div><h2>Where I've worked</h2><p>Development and support, side by side since 2023.</p></div>
+      <div class="body xp reveal">
+        <div class="row"><div class="when mono">Oct 2024 to now</div><div><h3>IT Support Specialist <span>· Kids Coding School</span></h3><ul><li>The only tech person at the school: accounts, devices, software and connectivity for staff, students and parents.</li><li>Escalation point for anything technical, and the one who writes down how each fix was done.</li><li>Maintain the school website and teach Python to kids.</li></ul></div></div>
+        <div class="row"><div class="when mono">Apr 2025 to now</div><div><h3>Founder and Software Engineer <span>· LYNQ</span></h3><ul><li>Websites, CRM workflows and automation for 5+ small businesses, including support after launch.</li><li>Moved a manufacturing client onto Azure and migrated their records into Azure SQL.</li></ul></div></div>
+        <div class="row"><div class="when mono">Jan 2025 to now</div><div><h3>Founder and Lead Developer <span>· CodeIt</span></h3><ul><li>Built and run a live coding platform for kids with paid family plans: hosting, database, logins, billing and user problems.</li></ul></div></div>
+        <div class="row"><div class="when mono">Oct 2023 to May 2024</div><div><h3>IT Support Technician <span>· Dynamic Structure Real Estate</span></h3><ul><li>First and second line support for hardware, software, operating system and network issues.</li><li>Wrote automation scripts that cut recurring downtime by about 30%.</li><li>Configured routers, firewalls and access points, and kept a written list of common fixes.</li></ul></div></div>
+        <div class="row"><div class="when mono">May to Sep 2023</div><div><h3>iOS Developer Intern <span>· Romman Apps, Amman</span></h3><ul><li>Built and debugged iOS features in an Agile team, integrated REST APIs and took part in code reviews.</li></ul></div></div>
+        <div class="row"><div class="when mono">2022 to 2025</div><div><h3>Advanced Diploma, Software Development and Network Engineering <span>· Sheridan College</span></h3><ul><li>Capstone became CodeIt and placed Top 5 of 49 at the 2025 Public Capstone Showcase, judged by industry professionals.</li><li>Certifications: Cisco Networking Fundamentals, IBM Introduction to Artificial Intelligence.</li></ul></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="skills" aria-label="Skills">
+    <div class="wrap">
+      <div class="rail reveal"><div class="path mono">/skills</div><h2>What I work with</h2><p>Each one used on something real, listed above.</p></div>
+      <dl class="body skills reveal">
+        <div><dt class="mono">Front end</dt><dd>React, React Router, HTML, CSS, responsive design</dd></div>
+        <div><dt class="mono">Back end</dt><dd>Node.js, Express, REST APIs, JWT auth, Stripe billing</dd></div>
+        <div><dt class="mono">Data</dt><dd>PostgreSQL, MySQL, Azure SQL, MongoDB, Firebase, including live migrations</dd></div>
+        <div><dt class="mono">Cloud and AI</dt><dd>Vercel, Azure, AWS, Cloudflare, Claude API and LLM integration</dd></div>
+        <div><dt class="mono">IT support</dt><dd>Troubleshooting, account setup and removal, Windows, macOS, Linux, Microsoft Office, remote support</dd></div>
+        <div><dt class="mono">Networking</dt><dd>TCP/IP, DNS, DHCP, VPN, firewalls, routers and access points, Cisco fundamentals</dd></div>
+        <div><dt class="mono">Languages</dt><dd>JavaScript, Python, SQL, Java, C#</dd></div>
+        <div><dt class="mono">Spoken</dt><dd>English and Arabic</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="sec contact" id="contact" aria-label="Contact">
+    <div class="wrap">
+      <div class="rail"><div class="path mono">/contact</div></div>
+      <div class="body reveal">
+        <p class="big">Let's build<br><em>something.</em></p>
+        <div class="email"><a id="mail" href="mailto:mustafaqudah556@gmail.com">mustafaqudah556@gmail.com</a><button class="copy" id="copy" type="button">Copy email</button></div>
+        <p class="note">I'm looking for a full-time role in software development or IT support, in Toronto or remote. Work permit valid to 2029, no sponsorship needed.</p>
+        <div class="elsewhere">
+          <a class="btn solid magnet" href="https://www.linkedin.com/in/mustafaalqudah" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn ghost magnet" href="https://github.com/alqudah1" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn ghost magnet" href="/resume/Mustafa-AlQudah-Software-Developer.pdf" target="_blank" rel="noopener">Developer resume</a>
+          <a class="btn ghost magnet" href="/resume/Mustafa-AlQudah-IT-Support.pdf" target="_blank" rel="noopener">IT support resume</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap mono"><span>© 2026 Mustafa AlQudah</span><span>Hand-written HTML, a WebGL shader and a few thousand particles · Hosted on Cloudflare</span></div></footer>
+
+<div class="term" id="term" hidden role="dialog" aria-label="Terminal">
+  <header><span>mustafa@toronto: ~</span><button type="button" id="closeTerm" aria-label="Close terminal">×</button></header>
+  <div class="out" id="out"></div>
+  <form id="termForm" autocomplete="off"><span>$</span><input id="termIn" type="text" spellcheck="false" aria-label="Command"></form>
+</div>
+
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hero=document.querySelector('.hero');
+
+  /* ---------- WebGL flow field ---------- */
+  (function(){
+    var cv=document.getElementById('field');var gl=cv.getContext('webgl',{antialias:false,alpha:false,preserveDrawingBuffer:false});
+    if(!gl)return;
+    var vs='attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}';
+    var fs='precision mediump float;uniform vec2 r;uniform float t;uniform vec2 m;'+
+    'float h(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}'+
+    'float n(vec2 p){vec2 i=floor(p),f=fract(p);vec2 u=f*f*(3.-2.*f);return mix(mix(h(i),h(i+vec2(1,0)),u.x),mix(h(i+vec2(0,1)),h(i+vec2(1,1)),u.x),u.y);}'+
+    'float fb(vec2 p){float v=0.,a=.5;for(int i=0;i<5;i++){v+=a*n(p);p=p*2.03+vec2(1.7,9.2);a*=.5;}return v;}'+
+    'void main(){vec2 uv=gl_FragCoord.xy/r;vec2 p=uv*vec2(r.x/r.y,1.)*1.6;'+
+    'vec2 q=vec2(fb(p+t*.06),fb(p+vec2(5.2,1.3)-t*.05));'+
+    'vec2 w=vec2(fb(p+3.5*q+vec2(1.7,9.2)+(m-.5)*1.2),fb(p+3.5*q+vec2(8.3,2.8)+t*.04));'+
+    'float f=fb(p+3.*w);'+
+    'vec3 deep=vec3(.063,.086,.42),cob=vec3(.17,.27,1.),vio=vec3(.48,.36,1.),cor=vec3(1.,.42,.28),lim=vec3(.84,1.,.29);'+
+    'vec3 c=mix(deep,cob,smoothstep(.15,.75,f));c=mix(c,vio,smoothstep(.3,1.,length(q))*.75);'+
+    'c=mix(c,cor,smoothstep(.62,.95,w.x)*.7);c=mix(c,lim,smoothstep(.86,1.,f+w.y*.2)*.35);'+
+    'float d=distance(uv,m);c+=vec3(.25,.2,.5)*smoothstep(.35,0.,d)*.35;'+
+    'c+=(h(gl_FragCoord.xy+fract(t))-.5)*.035;gl_FragColor=vec4(c,1.);}';
+    function sh(type,src){var s=gl.createShader(type);gl.shaderSource(s,src);gl.compileShader(s);return s;}
+    var pr=gl.createProgram();gl.attachShader(pr,sh(gl.VERTEX_SHADER,vs));gl.attachShader(pr,sh(gl.FRAGMENT_SHADER,fs));gl.linkProgram(pr);
+    if(!gl.getProgramParameter(pr,gl.LINK_STATUS))return;
+    gl.useProgram(pr);var b=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,b);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,1,1]),gl.STATIC_DRAW);
+    var loc=gl.getAttribLocation(pr,'p');gl.enableVertexAttribArray(loc);gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);
+    var ur=gl.getUniformLocation(pr,'r'),ut=gl.getUniformLocation(pr,'t'),um=gl.getUniformLocation(pr,'m');
+    var mx=.5,my=.5,tx=.5,ty=.5,vis=true,t0=performance.now();
+    function size(){var s=.5;cv.width=Math.max(2,cv.clientWidth*s|0);cv.height=Math.max(2,cv.clientHeight*s|0);gl.viewport(0,0,cv.width,cv.height);}
+    size();addEventListener('resize',size);
+    hero.addEventListener('pointermove',function(e){var r=hero.getBoundingClientRect();tx=(e.clientX-r.left)/r.width;ty=1-(e.clientY-r.top)/r.height;});
+    new IntersectionObserver(function(es){vis=es[0].isIntersecting;if(vis)loop();}).observe(hero);
+    function frame(){mx+=(tx-mx)*.05;my+=(ty-my)*.05;gl.uniform2f(ur,cv.width,cv.height);gl.uniform1f(ut,(performance.now()-t0)/1000);gl.uniform2f(um,mx,my);gl.drawArrays(gl.TRIANGLE_STRIP,0,4);}
+    var running=false;function loop(){if(running)return;running=true;(function tick(){if(!vis||reduce){running=false;return;}frame();requestAnimationFrame(tick);})();}
+    frame();if(!reduce)loop();
+  })();
+
+  /* ---------- particle name ---------- */
+  (function(){
+    var cv=document.getElementById('swarm');var ctx=cv.getContext('2d');if(!ctx)return;
+    var dpr=Math.min(devicePixelRatio||1,2),W=0,H=0,P=[],mouse={x:-9999,y:-9999,on:false},vis=true;
+    var cols=['#ffffff','#ffffff','#ffffff','#d6ff4a','#ffffff','#ffc2b3'];
+    function targets(){
+      var off=document.createElement('canvas');off.width=W;off.height=H;var o=off.getContext('2d');
+      var narrow=W<720;var lines=narrow?['MUSTAFA','ALQUDAH']:['MUSTAFA','ALQUDAH'];
+      var fs=narrow?W*.19:Math.min(W*.135,H*.24);
+      o.fillStyle='#fff';o.textAlign='center';o.textBaseline='middle';o.font='800 '+fs+'px "Bricolage Grotesque", Arial, sans-serif';
+      var cy=H*(narrow?.42:.45);o.fillText(lines[0],W/2,cy-fs*.47);o.fillText(lines[1],W/2,cy+fs*.47);
+      var data=o.getImageData(0,0,W,H).data;var gap=Math.max(3,Math.round(fs/(narrow?26:34)));var pts=[];
+      for(var y=0;y<H;y+=gap)for(var x=0;x<W;x+=gap){if(data[(y*W+x)*4+3]>128)pts.push([x,y]);}
+      var max=narrow?2200:4200;if(pts.length>max){var keep=[];var step=pts.length/max;for(var i=0;i<max;i++)keep.push(pts[Math.floor(i*step)]);pts=keep;}
+      return {pts:pts,gap:gap};
+    }
+    function build(){
+      W=cv.clientWidth;H=cv.clientHeight;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
+      var t=targets();var old=P;P=t.pts.map(function(p,i){var o=old[i];return{x:o?o.x:Math.random()*W,y:o?o.y:(Math.random()<.5?-20:H+20)+Math.random()*40,vx:0,vy:0,tx:p[0],ty:p[1],s:Math.max(1.8,t.gap*.78),c:cols[(Math.random()*cols.length)|0]};});
+      if(reduce){P.forEach(function(p){p.x=p.tx;p.y=p.ty;});draw();}
+    }
+    function step(){
+      var R=Math.min(150,W*.12),R2=R*R;
+      for(var i=0;i<P.length;i++){var p=P[i];
+        p.vx+=(p.tx-p.x)*.055;p.vy+=(p.ty-p.y)*.055;
+        if(mouse.on){var dx=p.x-mouse.x,dy=p.y-mouse.y,d2=dx*dx+dy*dy;if(d2<R2){var d=Math.sqrt(d2)||1,f=(1-d/R)*9;p.vx+=dx/d*f;p.vy+=dy/d*f;}}
+        p.vx*=.8;p.vy*=.8;p.x+=p.vx;p.y+=p.vy;}
+    }
+    function draw(){ctx.clearRect(0,0,W,H);for(var i=0;i<P.length;i++){var p=P[i];ctx.fillStyle=p.c;ctx.fillRect(p.x,p.y,p.s,p.s);}}
+    var running=false;function loop(){if(running||reduce)return;running=true;(function tick(){if(!vis){running=false;return;}step();draw();requestAnimationFrame(tick);})();}
+    cv.addEventListener('pointermove',function(e){var r=cv.getBoundingClientRect();mouse.x=e.clientX-r.left;mouse.y=e.clientY-r.top;mouse.on=true;});
+    cv.addEventListener('pointerleave',function(){mouse.on=false;});
+    cv.addEventListener('click',function(e){var r=cv.getBoundingClientRect(),cx=e.clientX-r.left,cy=e.clientY-r.top;P.forEach(function(p){var dx=p.x-cx,dy=p.y-cy,d=Math.sqrt(dx*dx+dy*dy)||1,f=2200/(d+40);p.vx+=dx/d*f+(Math.random()-.5)*14;p.vy+=dy/d*f+(Math.random()-.5)*14;});});
+    new IntersectionObserver(function(es){vis=es[0].isIntersecting;if(vis)loop();}).observe(cv);
+    var rt;addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(build,180);});
+    var go=function(){build();loop();};
+    if(document.fonts&&document.fonts.load){document.fonts.load('800 100px "Bricolage Grotesque"').then(go,go);}else go();
+  })();
+
+  /* ---------- typed prompt ---------- */
+  (function(){
+    var el=document.getElementById('typed');if(reduce)return;
+    var words=['builds products people pay for','ships CodeIt to real families','fixes the Wi-Fi before you notice','talks to the Claude API all day','moves databases without drama','answers "is it plugged in?" kindly'];
+    var w=0,i=words[0].length,del=true;
+    (function tick(){var s=words[w];if(del){i--;if(i<=0){del=false;w=(w+1)%words.length;}}else{i++;if(i>=words[w].length){del=true;setTimeout(tick,1900);el.textContent=words[w];return;}}el.textContent=words[w].slice(0,Math.max(0,i));setTimeout(tick,del?28:52);})();
+  })();
+
+  /* ---------- bar, nav, reveal, counters ---------- */
+  var bar=document.getElementById('bar');
+  function onScroll(){bar.classList.toggle('solid',scrollY>hero.offsetHeight-70);}
+  addEventListener('scroll',onScroll,{passive:true});onScroll();
+  var links=[].slice.call(document.querySelectorAll('.nav a'));
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)links.forEach(function(l){l.classList.toggle('on',l.getAttribute('href')==='#'+e.target.id);});});},{rootMargin:'-40% 0px -55% 0px'});
+    document.querySelectorAll('.sec[id]').forEach(function(s){io.observe(s);});
+    if(!reduce){
+      var rv=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.remove('pre');rv.unobserve(e.target);}});},{rootMargin:'0px 0px -8% 0px'});
+      document.querySelectorAll('.reveal').forEach(function(el){var r=el.getBoundingClientRect();if(r.top>innerHeight){el.classList.add('pre');rv.observe(el);}});
+      var cn=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;cn.unobserve(e.target);var b=e.target,to=+b.dataset.to,pre=b.dataset.pre||'',suf=b.dataset.suf||'',t0=performance.now();
+        (function f(now){var k=Math.min(1,(now-t0)/1100),v=Math.round(to*(1-Math.pow(1-k,3)));b.firstChild.nodeValue=pre+v+suf;if(k<1)requestAnimationFrame(f);})(t0);});},{threshold:.6});
+      document.querySelectorAll('.count').forEach(function(b){cn.observe(b);});
+    }
+  }
+
+  /* ---------- tilt + magnet + cursor ---------- */
+  if(matchMedia('(pointer:fine)').matches&&!reduce){
+    document.querySelectorAll('.tilt').forEach(function(f){
+      f.addEventListener('pointermove',function(e){var r=f.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;f.style.transform='rotateY('+(x*10)+'deg) rotateX('+(-y*8)+'deg) translateZ(0)';});
+      f.addEventListener('pointerleave',function(){f.style.transform='';});
+    });
+    document.querySelectorAll('.magnet').forEach(function(m){
+      m.addEventListener('pointermove',function(e){var r=m.getBoundingClientRect();m.style.transform='translate('+((e.clientX-r.left-r.width/2)*.25)+'px,'+((e.clientY-r.top-r.height/2)*.35)+'px)';});
+      m.addEventListener('pointerleave',function(){m.style.transform='';});
+    });
+    var cur=document.getElementById('cur'),cx=0,cy=0,px=0,py=0;
+    addEventListener('pointermove',function(e){cx=e.clientX;cy=e.clientY;var t=e.target.closest&&e.target.closest('a,button,#swarm');cur.classList.toggle('big',!!t);});
+    (function f(){px+=(cx-px)*.22;py+=(cy-py)*.22;cur.style.transform='translate('+(px-cur.offsetWidth/2)+'px,'+(py-cur.offsetHeight/2)+'px)';requestAnimationFrame(f);})();
+  }
+
+  /* ---------- copy email ---------- */
+  var copy=document.getElementById('copy');
+  copy.addEventListener('click',function(){var t='mustafaqudah556@gmail.com';function ok(){copy.textContent='Copied';setTimeout(function(){copy.textContent='Copy email';},1600);}
+    function sel(){var r=document.createRange();r.selectNodeContents(document.getElementById('mail'));var s=getSelection();s.removeAllRanges();s.addRange(r);}
+    if(navigator.clipboard)navigator.clipboard.writeText(t).then(ok,sel);else sel();});
+
+  /* ---------- terminal ---------- */
+  var term=document.getElementById('term'),out=document.getElementById('out'),inp=document.getElementById('termIn'),hist=[],hi=0;
+  function line(txt,cls,href){var d=document.createElement('div');if(cls)d.className=cls;if(href){var a=document.createElement('a');a.href=href;a.target='_blank';a.rel='noopener';a.textContent=txt;d.appendChild(a);}else d.textContent=txt;out.appendChild(d);out.scrollTop=out.scrollHeight;}
+  var C={
+    help:function(){line('whoami      who is this guy\nprojects    things I built and run\nopen <name> codeit, lynq, github, linkedin\nskills      what I work with\nexperience  where I worked\nresume      download my resume\ncontact     how to reach me\nscatter     blow up the name on the hero\ntheme       try it\nclear       clear the screen\nexit        close the terminal','d');},
+    whoami:function(){line('Mustafa AlQudah. Software developer and IT support in Toronto.\nFounder of CodeIt and LYNQ. Sheridan College, Software Development and Network Engineering.\nOpen to full-time roles. Work permit to 2029, no sponsorship needed.');},
+    projects:function(){line('codeit   a coding studio for kids, React + Node.js + PostgreSQL + Claude API, paid plans on Stripe\nlynq     web and AI automation studio, Toronto and Amman\noffice   LYNQ Office, internal platform: CRM, workflows, Content Studio, AI agents\nvideo    AI reels and story ads for brands, see /video\nclients  Kingsbridge Group, Nasma, Arcubed Label, Finding Amy, Kids Coding School\n\ntry: open codeit');},
+    ls:function(){C.projects();},
+    skills:function(){line('front end   React, HTML, CSS\nback end    Node.js, Express, REST, JWT, Stripe\ndata        PostgreSQL, MySQL, Azure SQL, MongoDB, Firebase\ncloud + ai  Vercel, Azure, AWS, Cloudflare, Claude API\nsupport     Windows, macOS, Linux, troubleshooting, networking');},
+    experience:function(){line('2024 to now  IT Support Specialist, Kids Coding School\n2025 to now  Founder, CodeIt and LYNQ\n2023 to 2024 IT Support Technician, Dynamic Structure Real Estate\n2023         iOS Developer Intern, Romman Apps');},
+    resume:function(){line('Developer resume (PDF)','c','/resume/Mustafa-AlQudah-Software-Developer.pdf');line('IT support resume (PDF)','c','/resume/Mustafa-AlQudah-IT-Support.pdf');},
+    contact:function(){line('mustafaqudah556@gmail.com','c','mailto:mustafaqudah556@gmail.com');line('linkedin.com/in/mustafaalqudah','c','https://www.linkedin.com/in/mustafaalqudah');},
+    open:function(a){var m={codeit:'https://codeitlearn.com',lynq:'https://lynq.build',github:'https://github.com/alqudah1',linkedin:'https://www.linkedin.com/in/mustafaalqudah'};if(m[a])line('opening '+a+' ↗','c',m[a]);else line('open what? try: open codeit','e');},
+    scatter:function(){var c=document.getElementById('swarm'),r=c.getBoundingClientRect();c.dispatchEvent(new MouseEvent('click',{clientX:r.left+r.width/2,clientY:r.top+r.height/2}));line('boom. scroll up to see it reform.','d');},
+    theme:function(){line('No dark mode here. I was told: not black.','d');},
+    sudo:function(a){line(a&&/hire/.test(a)?'Permission granted. Sending you to my inbox...':'Nice try. This incident will be reported to Mustafa.','c');if(a&&/hire/.test(a))setTimeout(function(){location.href='mailto:mustafaqudah556@gmail.com?subject=Let%27s%20talk';},700);},
+    clear:function(){out.textContent='';},
+    exit:function(){closeT();}
+  };
+  function run(v){line('$ '+v,'c');var parts=v.trim().split(/\s+/),cmd=(parts.shift()||'').toLowerCase(),arg=parts.join(' ').toLowerCase();if(!cmd)return;if(C[cmd])C[cmd](arg);else line('command not found: '+cmd+'. type help','e');}
+  function openT(){term.hidden=false;if(!out.childNodes.length){line('Welcome. You found the terminal.','d');line("Type 'help' to look around. Try 'sudo hire mustafa'.",'d');}setTimeout(function(){inp.focus();},30);}
+  function closeT(){term.hidden=true;}
+  document.getElementById('openTerm').addEventListener('click',openT);
+  document.getElementById('closeTerm').addEventListener('click',closeT);
+  document.getElementById('termForm').addEventListener('submit',function(e){e.preventDefault();var v=inp.value;if(v.trim()){hist.push(v);hi=hist.length;}inp.value='';run(v);});
+  inp.addEventListener('keydown',function(e){if(e.key==='ArrowUp'&&hi>0){hi--;inp.value=hist[hi];e.preventDefault();}else if(e.key==='ArrowDown'){hi=Math.min(hist.length,hi+1);inp.value=hist[hi]||'';e.preventDefault();}else if(e.key==='Escape')closeT();});
+  addEventListener('keydown',function(e){var tag=(e.target.tagName||'').toLowerCase();if((e.key==='`'||e.key==='~')&&tag!=='input'&&tag!=='textarea'){e.preventDefault();term.hidden?openT():closeT();}});
+})();
+</script>
+</body>
+</html>
